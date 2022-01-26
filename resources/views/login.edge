@@ -8,12 +8,17 @@
     <title>Login Fuston</title>
 </head>
 <body>
-
-    <form action="/auth" method="POST">
-
+    @if(old('message'))
+    <div class='alert alert-{{old('type')}}' role='alert'>
+        {{old('message')}}
+    </div>
+    @endif
+    <form action="/session" method="POST">
+            {{ csrfField() }}
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
+
                         <div class="modal-title mx-auto" id="exampleModalLongTitle">
                             <img class="rounded" src="https://fuston.com.br/assets/img/logo.png"
                                 width="120rem">
@@ -28,11 +33,11 @@
                     <div class="modal-body" id="datepicker">
                         <div class="form-group ml-2 mr-2 py-4">
                             <label for="recipient-name1"
-                                class="col-form-label font-weight-normal">Nome do usuário</label>
-                            <input placeholder="Usuário" name="nameUser" type="text" class="form-control" id="recipient-name1" required>
+                                class="col-form-label font-weight-normal">Email</label>
+                            <input placeholder="Email" id="email" name="email" type="text" class="form-control" id="recipient-name1" required>
                             <label for="recipient-name2"
                             class="col-form-label font-weight-normal">Senha</label>
-                            <input placeholder="Senha" name="password" type="password" class="form-control" id="recipient-name2" required>
+                            <input placeholder="Senha" id="password" name="password" type="password" class="form-control" id="recipient-name2" required>
                         </div>
                     </div>
                     <button type="submit"
