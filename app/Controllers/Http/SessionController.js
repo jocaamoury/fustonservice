@@ -11,7 +11,7 @@ class SessionController {
                 message: 'Autenticação não pode ser efetuada',
                 type: 'danger'
             })
-            return response.redirect('/login')
+            return response.redirect('/')
         }
         console.log(email,password)
     }
